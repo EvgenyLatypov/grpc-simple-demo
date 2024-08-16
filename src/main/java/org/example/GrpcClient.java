@@ -18,10 +18,10 @@ public class GrpcClient {
         GreetingServiceOuterClass.HelloRequest request =
                 GreetingServiceOuterClass.HelloRequest.newBuilder().setName("Eugene").build();
 
-        Iterator<GreetingServiceOuterClass.HelloResponse> response = stub.greeting(request);
+        GreetingServiceOuterClass.HelloResponse response = stub.greeting(request);
 
-        while (response.hasNext())
-            System.out.println(response.next());
+        System.out.println(response);
+
         channel.shutdownNow();
     }
 }
